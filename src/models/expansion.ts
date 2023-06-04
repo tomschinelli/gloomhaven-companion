@@ -1,0 +1,1 @@
+export type Expansion = "Gloomhaven" | "crimson-scales" | "forgotten-circles" | "gloomhaven" | "trail-of-ashes"
