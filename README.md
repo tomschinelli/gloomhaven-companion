@@ -39,3 +39,8 @@ multiple groups, this must be considered in the backend.
 Furthermore, users must log into the app.
 
 This escalates quickly into much work.
+
+
+## :clap: Thanks
+
+Props to https://github.com/any2cards/gloomhaven  for providing tons of assets
