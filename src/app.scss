@@ -1,1 +1,29 @@
 /* Write your global styles here, in SCSS syntax. Variables and mixins from the src/variables.scss file are available here without importing */
+html {
+  background: radial-gradient(#363642, #1d1d28) fixed;
+  color: #dddddd;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,body {
+  padding: 0;
+  margin: 0;
+}
+
+dialog {
+  color: #dddddd;
+  background: #171717 fixed;
+  border: 0;
+  margin: 0;
+  padding: 0;
+
+}
+
+dialog::backdrop {
+  backdrop-filter: blur(1px);
+}
+:root{
+  --character-count: 4;
+}

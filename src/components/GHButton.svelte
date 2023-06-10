@@ -2,9 +2,6 @@
     import Fa from 'svelte-fa/src/fa.svelte'
     import {faFlag, faAdd, faHome} from "@fortawesome/free-solid-svg-icons";
 
-    let buttonProps = {
-        class: [$$restProps.class]
-    }
 </script>
 <button class="icon icon-fill"
         on:click
@@ -72,18 +69,27 @@
       transition: all 0.25s ease;
     }
 
+
   }
 
 
   .icon-fill {
     &::before {
       transition-duration: 0.5s;
-      box-shadow: inset 0 0 0 1px $green;
+      box-shadow: inset 0 0 0 1px $white;
     }
 
     &:hover::before {
-      box-shadow: inset 0 0 0 $icon-size $green;
+      box-shadow: inset 0 0 0 $icon-size $white;
     }
+
+    &:hover{
+      :global(svg) {
+        color:#363642;
+
+      }
+    }
+
   }
 
 
