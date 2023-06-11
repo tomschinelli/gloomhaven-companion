@@ -1,10 +1,10 @@
 <script lang="ts">
-    import {CharacterApi} from "../api/character";
     import { swipe } from 'svelte-gestures';
 
     import CharacterCard from "./CharacterCard.svelte";
     import {createEventDispatcher} from "svelte";
-    import type {Character} from "../models/character";
+    import {CharacterApi} from "$lib/CharacterApi";
+    import type {Character} from "$lib/Character";
 
     const characterApi = new CharacterApi()
     const characters = characterApi.getCharacters(["gloomhaven"])

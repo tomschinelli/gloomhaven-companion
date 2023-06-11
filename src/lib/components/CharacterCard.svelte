@@ -1,5 +1,6 @@
 <script lang="ts">
-    import type {Character} from "../models/character";
+
+    import type {Character} from "$lib/Character";
 
     export let character: Character
 

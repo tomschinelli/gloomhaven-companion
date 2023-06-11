@@ -1,6 +1,9 @@
-<script>
+<script lang="ts">
     import Fa from 'svelte-fa/src/fa.svelte'
-    import {faFlag, faAdd, faHome} from "@fortawesome/free-solid-svg-icons";
+    import {faAdd} from "@fortawesome/free-solid-svg-icons";
+    import type{IconDefinition} from "@fortawesome/free-solid-svg-icons";
+
+    export let icon: IconDefinition = faAdd;
 
 </script>
 <button class="icon icon-fill"
@@ -9,7 +12,7 @@
         on:mouseenter
         on:mouseleave
 >
-    <Fa icon={faAdd} size="1.5x"/>
+    <Fa icon={icon} size="1.5x"/>
 
 </button>
 
@@ -83,9 +86,9 @@
       box-shadow: inset 0 0 0 $icon-size $white;
     }
 
-    &:hover{
+    &:hover {
       :global(svg) {
-        color:#363642;
+        color: #363642;
 
       }
     }

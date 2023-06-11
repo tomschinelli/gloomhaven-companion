@@ -1,7 +1,7 @@
-import characterMats from "../data/character-mats.json"
-import type {Expansion} from "../models/expansion";
-import type {CharacterMat} from "../models/character";
-import {Character} from "../models/character";
+import characterMats from "$lib/data/character-mats.json"
+import type {Expansion} from "$lib/expansion";
+import type {CharacterMat} from "$lib/Character";
+import {Character} from "$lib/Character";
 
 
 export class CharacterApi {
