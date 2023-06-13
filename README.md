@@ -18,6 +18,30 @@ destroyed every evening at 24:00 UTC. Since it is mainly for my own group, it wi
 If there is enough interest in this app, me
 
 
+## Developer Guide
+
+### Setup 
+
+Requirements: 
+- nodejs (tested with v20.2.0)
+
+Run dev server
+```shell
+npm intall
+npm run dev
+
+# open browser on http://localhost:5173
+```
+
+A good starting point to inspect the code is the file `src/routes/+page.svelte`
+
+### Build Container locally
+Run 
+```shell
+docker build --tag gloomhaven-compantion .
+docker run -p "8080:3000" --init gloomhaven-compantion
+```
+
 ## :bulb: Ideas for the future
 
 All features depend on my personal need or if there is enough interest in this app. 
