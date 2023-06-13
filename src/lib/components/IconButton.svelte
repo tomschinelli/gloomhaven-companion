@@ -4,6 +4,7 @@
     import type{IconDefinition} from "@fortawesome/free-solid-svg-icons";
 
     export let icon: IconDefinition = faAdd;
+    export let size = "1.5x"
 
 </script>
 <button class="icon icon-fill"
@@ -12,7 +13,7 @@
         on:mouseenter
         on:mouseleave
 >
-    <Fa icon={icon} size="1.5x"/>
+    <Fa icon={icon} size="{size}"/>
 
 </button>
 
@@ -64,8 +65,10 @@
     :global(svg) {
 
       position: relative;
-      color: $white;
+      //color: $white;
       //background: blue;
+      color: #363642;
+
       margin-top: 13px;
       //margin-top: calc( $icon-size/4 );
       //margin-left: calc( $icon-size/4 ); // wtf
@@ -79,19 +82,14 @@
   .icon-fill {
     &::before {
       transition-duration: 0.5s;
-      box-shadow: inset 0 0 0 1px $white;
-    }
-
-    &:hover::before {
+      //box-shadow: inset 0 0 0 1px $white;
       box-shadow: inset 0 0 0 $icon-size $white;
+
     }
 
-    &:hover {
-      :global(svg) {
-        color: #363642;
-
-      }
-    }
+    //&:hover::before {
+    //  box-shadow: inset 0 0 0 $icon-size $white;
+    //}
 
   }
 

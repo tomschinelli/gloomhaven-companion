@@ -3,18 +3,27 @@
     import IconButton from "./IconButton.svelte";
     import type {Character} from "$lib/Character";
     import {iconSelector} from "$lib/IconSelector";
+    import {createEventDispatcher} from "svelte";
 
 
     export let character: Character | undefined = undefined;
     let forceContextMenu = false;
-
     $: showContextMenu = !character || forceContextMenu
 
+
+    // ---- events ---- //
+    const dispatch = createEventDispatcher();
+    const onDelete = () => dispatch("delete")
 </script>
 
-<div class="wrapper" on:click>
+<div class="wrapper"
+     class:enemy={character?.type === 'enemy'}
+     class:hero={character?.type === 'hero'}
+     on:click
+>
     {#if character}
         <img class="image"
+
              src={character.backImage}
              alt={character.name}
              on:click={()=>forceContextMenu=true}
@@ -25,7 +34,7 @@
             {#if !character}
                 <IconButton icon="{iconSelector.add}"/>
             {:else}
-                <IconButton icon="{iconSelector.delete}"/>
+                <IconButton on:click={onDelete} icon="{iconSelector.delete}"/>
             {/if}
         </div>
     {/if}
@@ -33,18 +42,31 @@
 
 <style lang="scss">
   .wrapper {
+    width: 100%;
     height: 100%;
     position: relative;
     display: inline-block;
-
+    overflow: hidden;
     img {
       width: 100%;
-      background: blue;
       height: 100%;
       object-fit: cover;
       object-position: left;
     }
+    &.enemy{
+      img {
+
+        position: absolute;
+        left:0;
+        width: 35px;
+        height: 100%;
+        //top: 50%;
+        object-fit: cover;
+        object-position: left;
+      }
+    }
   }
+
 
   .overlay {
     position: absolute;

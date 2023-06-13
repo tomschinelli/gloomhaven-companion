@@ -9,7 +9,8 @@
     import type {Expansion} from "$lib/expansion";
 
     const characterApi = new CharacterApi()
-    let characters: Character[] = []
+    export let currentCharacters: Character[] = []
+    let availableCharacters: Character[] = []
     let activeFilter = 'heros'
     let activeExpansions: Expansion[] = ["gloomhaven"]
 
@@ -28,12 +29,15 @@
         loadData()
     }
     const loadData = () => {
+        let list: Character[] = [];
         if (activeFilter == 'heros') {
-            characters = characterApi.getCharacters(activeExpansions)
+            list = characterApi.getCharacters(activeExpansions)
         }
         if (activeFilter == 'enemies') {
-            characters = characterApi.getEnemies(activeExpansions)
+            list = characterApi.getEnemies(activeExpansions)
         }
+        const hiddenCharacterIds = currentCharacters.map(x=>x.id)
+        availableCharacters = list.filter(x=>!hiddenCharacterIds.includes(x.id));
     }
 
     export const onCloseSwipe = (event: CustomEvent) => {
@@ -58,7 +62,7 @@
         <Button on:click={()=>setFilter('enemies')} active="{activeFilter==='enemies'}">ENEMIES</Button>
     </div>
     <div class="cards">
-        {#each characters as character }
+        {#each availableCharacters as character }
             <CharacterCard on:click={()=>onSelect(character)} character={character}/>
         {/each}
     </div>

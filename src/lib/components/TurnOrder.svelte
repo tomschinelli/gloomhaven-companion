@@ -20,19 +20,32 @@
         characters = evt.detail.items
     };
 
+    let templateColumns = '1fr 1fr 1fr 1fr';
+    $: if(characters.length > 0) {
+        const columnItems = characters.map(x=> x.type== "hero"? '1fr': "35px")
+        // keep add button small
+        while (columnItems.length < 4){
+            columnItems.push("1fr")
+        }
+        if(editMode)columnItems.push("1fr")
+        templateColumns = columnItems.join(" ")
+    }
 
     const onAdd = () => dispatch("add");
+    const onDelete = (id:string) => dispatch("delete", {
+        id: id
+    });
 
 </script>
 <div use:dndzone="{{items:characters}}"
      on:consider="{handleConsider}"
      on:finalize="{handleFinalize}"
      class="container"
-     style={'--character-count: '+(itemCount)}
+     style:grid-template-columns="{templateColumns}"
 >
     {#each characters as character (character.id)}
         <div animate:flip={{duration: flipDuration}}>
-            <TurnOrderItem character={character} />
+            <TurnOrderItem character={character} on:delete={()=>onDelete(character.id)} />
         </div>
     {/each}
 
@@ -48,7 +61,9 @@
         min-height: 100vh;
         position: relative;
         display: grid;
-        grid-template-columns: repeat(auto-fill, calc(1 / var(--character-count) * 100% - 10px));
+        /*grid-template-columns: repeat(auto-fill, calc(1 / var(--character-count) * 100% - 10px));*/
+        /*grid-template-columns: 35px 35px 1fr 1fr 1fr;*/
+
         justify-content: center;
         gap: 10px;
         padding: 10px 5px;

@@ -7,8 +7,6 @@
 </script>
 <div class={"character-card "+character.type} on:click>
     <img src={character.backImage} alt={character.name}>
-
-
 </div>
 
 <style lang="scss">
