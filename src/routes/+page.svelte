@@ -18,6 +18,6 @@
     let forceEditMode = true;
     $: editmode = characters.length === 0 || forceEditMode;
 </script>
-<div on:click={()=>forceEditMode = !forceEditMode}>{editmode}</div>
+<!--<div on:click={()=>forceEditMode = !forceEditMode}>{editmode}</div>-->
 <CharacterSelectionDialog on:select={e =>addCharacter(e.detail.character)} bind:this={characterSelection}/>
 <TurnOrder bind:characters={characters} editMode="{editmode}" on:add={openCharacterSelection} />

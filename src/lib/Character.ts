@@ -8,6 +8,7 @@ export interface CharacterMat{
 export class Character{
     id: string;
     name: string;
+    type: 'hero' | 'enemy';
     frontImage?: string
     backImage?: string
 
@@ -16,6 +17,7 @@ export class Character{
         this.name = args?.name ?? "";
         this.id = args?.id ?? "";
         this.frontImage = args?.frontImage ;
+        this.type = args?.type ?? 'hero';
         this.backImage = args?.backImage ;
 
     }
