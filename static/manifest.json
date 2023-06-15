@@ -1,0 +1,18 @@
+{
+  "short_name": "GHC",
+  "name": "Gloomhaven Companion",
+  "start_url": "/",
+  "orientation": "landscape",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "4867x861"
+    }
+  ],
+  "background_color": "#1d1d28",
+  "display": "fullscreen",
+  "scope" : "/",
+  "theme_color" : "#cc0000",
+  "description" : "A companion for the boardgame gloomhaven"
+}

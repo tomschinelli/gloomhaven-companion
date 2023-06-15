@@ -1,4 +1,5 @@
 # GLOOMHAVEN Companion (WIP)
+<img align="center"  width="100%" src="./docs/headline.jpg">
 
 Little companion to manage gloomhaven turn order in a simple manner.
 
