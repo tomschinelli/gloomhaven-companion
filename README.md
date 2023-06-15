@@ -20,6 +20,13 @@ If there is enough interest in this app, me
 
 ## Developer Guide
 
+The application is designed to run on a mobile device in landscape mode.
+Therefore, when running the code locally (directly with node, or docker), enter
+the ip of your device, where the code is running instead of localhost.
+ 
+
+You can run the application with one of the possibilities below:
+
 ### Setup 
 
 Requirements: 
@@ -29,22 +36,36 @@ Run dev server
 ```shell
 npm intall
 npm run dev
-
-# open browser on http://localhost:5173
+# > gloomhaven-companion@0.0.1 dev
+# > vite dev --host
+# 
+# 
+# 
+#   VITE v4.3.9  ready in 484 ms
+# 
+#   ➜  Local:   http://localhost:5173/
+#   ➜  Network: http://(your ip):5173/
+#   ➜  press h to show help
 ```
 
 A good starting point to inspect the code is the file `src/routes/+page.svelte`
 
 ### Run Container
+Run 
 ```shell
 docker pull ghcr.io/tomschinelli/gloomhaven-companion:latest
-docker run 
+docker run -p 8080:3000 --init ghcr.io/tomschinelli/gloomhaven-companion:latest
+# Listening on 0.0.0.0:3000
 ```
+
+Open the browser at http://localhost:8080
+
 ### Build Container locally
 Run 
 ```shell
 docker build --tag gloomhaven-compantion .
 docker run -p "8080:3000" --init gloomhaven-compantion
+# Listening on 0.0.0.0:3000
 ```
 
 ## :bulb: Ideas for the future
