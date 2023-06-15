@@ -1,5 +1,6 @@
 FROM node:20-alpine as build
 
+RUN npm install -g pnpm
 
 WORKDIR /app
 
@@ -9,12 +10,15 @@ RUN npm install
 COPY . ./
 RUN ls -la
 RUN npm run build
-
-
-#ENTRYPOINT ["node","build"]
+RUN npm prune --production
 
 
 FROM node:20-alpine
-COPY --from=build /app/build /app/
-COPY --from=build /app/package.json /app/package.json
-ENTRYPOINT ["node" ,"/app"]
+WORKDIR /app
+COPY --from=build /app/build  build/
+COPY --from=build /app/package.json   .
+COPY --from=build /app/node_modules  node_modules/
+
+EXPOSE 3000
+ENV NODE_ENV=production
+ENTRYPOINT [ "node", "build" ]

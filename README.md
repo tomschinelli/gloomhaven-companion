@@ -35,6 +35,11 @@ npm run dev
 
 A good starting point to inspect the code is the file `src/routes/+page.svelte`
 
+### Run Container
+```shell
+docker pull ghcr.io/tomschinelli/gloomhaven-companion:latest
+docker run 
+```
 ### Build Container locally
 Run 
 ```shell
