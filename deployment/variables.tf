@@ -11,7 +11,14 @@ variable "cloudflare_account_id" {
 variable "aws_region" {
   type        = string
   description = "aws region"
-  default = "eu-central-1"
+  default     = "eu-central-1"
+}
+
+variable "ghcr_username" {
+  type = string
+}
+variable "ghcr_password" {
+  type = string
 }
 
 
