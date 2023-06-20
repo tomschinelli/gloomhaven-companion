@@ -9,7 +9,6 @@
 
     export let characters: Character[] = []
     export let editMode = false
-    $: itemCount = editMode ? characters.length + 1 : characters.length;
 
 
     const flipDuration = 200;
@@ -37,7 +36,7 @@
     });
 
 </script>
-<div use:dndzone="{{items:characters}}"
+<div use:dndzone="{{items:characters, dragDisabled: editMode, dropDisable:editMode}}"
      on:consider="{handleConsider}"
      on:finalize="{handleFinalize}"
      class="container"
