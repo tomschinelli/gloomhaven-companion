@@ -10,8 +10,8 @@
         characterSelection.close();
         characters = [...characters, c]
     };
-    const deleteCharacter = (id:string) => {
-        characters = characters.filter(x=>x.id != id)
+    const deleteCharacter = (id: string) => {
+        characters = characters.filter(x => x.id != id)
     };
 
     let characterSelection: CharacterSelectionDialog
@@ -21,7 +21,7 @@
 
     let forceEditMode = true;
     $: editmode = characters.length === 0 || forceEditMode;
-    $: modeIcon = editmode? iconSelector.edit: iconSelector.view;
+    $: modeIcon = editmode ? iconSelector.view : iconSelector.edit;
 </script>
 
 <CharacterSelectionDialog
@@ -35,14 +35,14 @@
            on:delete={evt=>deleteCharacter(evt.detail.id)}
 />
 <div class="mode">
-    <IconButton on:click={()=>forceEditMode=!forceEditMode} icon="{modeIcon}" />
+    <IconButton on:click={()=>forceEditMode=!forceEditMode} icon="{modeIcon}"/>
 </div>
 
 <style>
-    .mode{
+    .mode {
         position: absolute;
-        top:0;
-        right:0;
+        top: 0;
+        right: 0;
         padding: 1rem;
 
     }
