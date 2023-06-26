@@ -18,3 +18,12 @@ cd environemnts/$APP_ENV
 terragrunt init 
 terraform apply
 ```
+
+### To-Do
+
+#### Modules
+create modules for: 
+
+- network
+- ecs
+- dns + ssl
