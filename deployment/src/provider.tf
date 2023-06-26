@@ -9,16 +9,18 @@ terraform {
       version = "~> 3.0"
     }
   }
-  backend "s3" {
-    bucket  = "gloomhaven-companion-prod-terraform-state"
-    encrypt = true
-    key     = "terraform.tfstate"
-    region  = "eu-central-1"
-  }
 }
 
+variable "aws_access_key" {}
+variable "aws_secret_key" {}
+variable "aws_region" {}
+variable "cloudflare_token" {}
+variable "cloudflare_account_id" {}
+
 provider "aws" {
-  region = "eu-central-1"
+  region     = var.aws_region
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
 }
 
 provider "cloudflare" {
